@@ -20,4 +20,4 @@ Currently, two official plugins are available:
 ## Links
 
 - [Figma Design](https://www.figma.com/file/DTojSwldenF9UPKQZd6RRb/Sprint-10%3A-WTWR)
-- [GitHub]()
+- [GitHub](https://thetanos24.github.io/se_project_react/)
