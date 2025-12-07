@@ -1,0 +1,31 @@
+.modal__image {
+  position: relative;
+  left: -28px;
+  top: -29px;
+  width: 496px;
+  height: 497px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.modal__footer {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__caption {
+  margin: 0;
+  padding-bottom: 12px;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+.modal__weather {
+  margin: 0;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+}
