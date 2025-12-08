@@ -1,11 +1,15 @@
 import "./ItemModal.css";
 import previewCloseButton from "../../images/modalimagepreviewclose.svg";
 
-function ItemModal({ activeModal, card, onClose }) {
+function ItemModal({ isOpen, card, onClose, name }) {
   return (
-    <div className={`modal ${activeModal === "preview" && "modal__opened"}`}>
+    <div
+      className={`modal modal_type_${name} ${isOpen ? "modal__opened" : ""}`}
+    >
       <div className="modal__content modal__content_type_image">
-        <img src={card.link} alt="" className="modal__image" />
+        {/* FIXED: Swapped alt="" for alt={card.name} */}
+        <img src={card.link} alt={card.name} className="modal__image" />
+
         <button onClick={onClose} type="button" className="modal__close-btn">
           <img
             src={previewCloseButton}

@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
 
 import "./App.css";
-import { coordinates, APIkey } from "../../utils/constants.js";
-import Header from "../Header/Header";
-import Main from "../Main/Main";
-import Footer from "../Footer/Footer";
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import ItemModal from "../ItemModal/ItemModal";
-import { getWeather, filterWeatherData } from "../../utils/weatherApi.js";
+import {
+  coordinates,
+  apiKey,
+  defaultClothingItems,
+} from "./utils/constants.js";
+import Header from "./components/Header/Header.jsx";
+import Main from "./components/Main/Main.jsx";
+import Footer from "./components/Footer/Footer.jsx";
+import ModalWithForm from "./components/ModalWithForm/ModalWithForm.jsx";
+import ItemModal from "./components/ItemModal/ItemModal.jsx";
+import { getWeather, filterWeatherData } from "./utils/weatherApi.js";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -32,7 +36,7 @@ function App() {
   };
 
   useEffect(() => {
-    getWeather(coordinates, APIkey)
+    getWeather(coordinates, apiKey)
       .then((data) => {
         const filteredData = filterWeatherData(data);
         setWeatherData(filteredData);
@@ -44,7 +48,12 @@ function App() {
     <div className="page">
       <div className="page__content">
         <Header handleAddClick={handleAddClick} weatherData={weatherData} />
-        <Main weatherData={weatherData} handleCardClick={handleCardClick} />
+
+        <Main
+          weatherData={weatherData}
+          handleCardClick={handleCardClick}
+          clothingItems={defaultClothingItems}
+        />
         <Footer />
       </div>
 
@@ -53,6 +62,8 @@ function App() {
         buttonText="Add garment"
         activeModal={activeModal}
         onClose={closeActiveModal}
+        name="add-garment"
+        isOpen={activeModal === "add-garment"}
       >
         <label htmlFor="name" className="modal__label">
           Name{" "}
@@ -76,7 +87,13 @@ function App() {
           <legend className="modal__legend">Select the weather type:</legend>
 
           <label htmlFor="hot" className="modal__label modal__label_type_radio">
-            <input id="hot" type="radio" className="modal__radio-input"></input>{" "}
+            <input
+              id="hot"
+              type="radio"
+              name="weather"
+              value="hot"
+              className="modal__radio-input"
+            />{" "}
             Hot
           </label>
 
@@ -87,8 +104,10 @@ function App() {
             <input
               id="warm"
               type="radio"
+              name="weather"
+              value="warm"
               className="modal__radio-input"
-            ></input>{" "}
+            />{" "}
             Warm
           </label>
 
@@ -99,16 +118,19 @@ function App() {
             <input
               id="cold"
               type="radio"
+              name="weather"
+              value="cold"
               className="modal__radio-input"
-            ></input>{" "}
+            />{" "}
             Cold
           </label>
         </fieldset>
       </ModalWithForm>
       <ItemModal
-        activeModal={activeModal}
+        isOpen={activeModal === "preview"}
         card={selectedCard}
         onClose={closeActiveModal}
+        name="preview"
       />
     </div>
   );
