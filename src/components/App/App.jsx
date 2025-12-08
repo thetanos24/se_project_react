@@ -6,12 +6,12 @@ import {
   apiKey,
   defaultClothingItems,
 } from "../../utils/constants.js";
-import Header from "./components/Header/Header.jsx";
-import Main from "./components/Main/Main.jsx";
-import Footer from "./components/Footer/Footer.jsx";
-import ModalWithForm from "./components/ModalWithForm/ModalWithForm.jsx";
-import ItemModal from "./components/ItemModal/ItemModal.jsx";
-import { getWeather, filterWeatherData } from "./utils/weatherApi.js";
+import Header from "../Header/Header.jsx";
+import Main from "../Main/Main.jsx";
+import Footer from "../Footer/Footer.jsx";
+import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
+import ItemModal from "../ItemModal/ItemModal.jsx";
+import { getWeather, filterWeatherData } from "../../utils/weatherApi.js";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
