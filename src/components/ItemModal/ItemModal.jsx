@@ -7,7 +7,6 @@ function ItemModal({ isOpen, card, onClose, name }) {
       className={`modal modal_type_${name} ${isOpen ? "modal__opened" : ""}`}
     >
       <div className="modal__content modal__content_type_image">
-        {/* FIXED: Swapped alt="" for alt={card.name} */}
         <img src={card.link} alt={card.name} className="modal__image" />
 
         <button onClick={onClose} type="button" className="modal__close-btn">
