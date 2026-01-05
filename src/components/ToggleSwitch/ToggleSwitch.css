@@ -26,7 +26,7 @@
 .toggle-switch__text {
   position: absolute;
   top: 7px;
-  color: #fff;
+  color: #7e7e7e;
   font-size: 14px;
   mix-blend-mode: difference;
   z-index: 2;
@@ -46,6 +46,14 @@
 }
 
 .toggle-switch__text_color_white {
+  color: #fff;
+}
+
+.toggle-switch:hover {
+  border-color: #000;
+}
+
+.toggle-switch:hover .toggle-switch__text {
   color: #fff;
 }
 
