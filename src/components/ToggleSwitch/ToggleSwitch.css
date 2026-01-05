@@ -6,6 +6,7 @@
   cursor: pointer;
   overflow: hidden;
   position: relative;
+  background-color: #fff;
 }
 
 .toggle-switch__checkbox {
@@ -19,17 +20,21 @@
   position: absolute;
   border-radius: 50%;
   left: 0;
-  transition: all 0.3s;
+  transition: all 0.5s ease;
 }
 
 .toggle-switch__text {
   position: absolute;
-  top: 4px;
-  color: #7e7e7e;
+  top: 7px;
+  color: #fff;
+  font-size: 14px;
+  mix-blend-mode: difference;
+  z-index: 2;
+  transition: all 0.5s ease;
 }
 
 .toggle-switch__text_F {
-  left: 8px;
+  left: 10px;
 }
 
 .toggle-switch__text_C {
@@ -37,5 +42,13 @@
 }
 
 .toggle-switch__checkbox:checked ~ .toggle-switch__circle {
-  left: 28px;
+  left: 29px;
+}
+
+.toggle-switch__text_color_white {
+  color: #fff;
+}
+
+.toggle-switch:hover .toggle-switch__circle {
+  transform: translateX(2px);
 }
