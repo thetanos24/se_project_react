@@ -1,17 +1,14 @@
 import { useEffect, useState } from "react";
 
 import "./App.css";
-import {
-  coordinates,
-  apiKey,
-  defaultClothingItems,
-} from "../../utils/constants.js";
+import { coordinates, apiKey } from "../../utils/constants.js";
 import Header from "../Header/Header.jsx";
 import Main from "../Main/Main.jsx";
 import Footer from "../Footer/Footer.jsx";
 import ItemModal from "../ItemModal/ItemModal.jsx";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi.js";
 import CurrentTemperatureUnitContex from "../../contexts/CurrentTemperatureUnitContext.js";
+import { defaultClothingItems } from "../../utils/constants.js";
 import AddItemModal from "../AddItemModal/AddItemModal.jsx";
 
 function App() {
@@ -25,6 +22,7 @@ function App() {
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
+  const [clothingItems, setClothingItems] = useState(defaultClothingItems);
 
   const handleToggleSwitchChange = () => {
     setCurrentTemperatureUnit(currentTemperatureUnit === "F" ? "C" : "F");
@@ -37,6 +35,22 @@ function App() {
 
   const handleAddClick = () => {
     setActiveModal("add-garment");
+  };
+
+  const onAddItem = (inputValues) => {
+    //call the fetch function
+    //.then(data) => ()...all the stuff below->
+
+    const newCardData = {
+      name: inputValues.name,
+      link: inputValues.link,
+      weather: inputValues.weather,
+    };
+    //don't use newcarddata
+    //id will be included in the response data
+    setClothingItems([...clothingItems, newCardData]);
+    closeActiveModal();
+    //.catch
   };
 
   const closeActiveModal = () => {
@@ -63,7 +77,7 @@ function App() {
           <Main
             weatherData={weatherData}
             handleCardClick={handleCardClick}
-            clothingItems={defaultClothingItems}
+            clothingItems={clothingItems}
           />
           <Footer />
         </div>
@@ -71,6 +85,7 @@ function App() {
         <AddItemModal
           onClose={closeActiveModal}
           isOpen={activeModal === "add-garment"}
+          onAddItem={onAddItem}
         />
         <ItemModal
           isOpen={activeModal === "preview"}

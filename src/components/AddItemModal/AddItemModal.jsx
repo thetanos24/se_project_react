@@ -1,6 +1,19 @@
+import { useForm } from "../../hooks/useForm";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const AddItemModal = ({ isOpen, handleSubmit, onClose }) => {
+const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
+  const defaultValues = {
+    name: "",
+    link: "",
+    weatherType: "",
+  };
+  const { values, handleChange } = useForm(defaultValues);
+
+  function handleSubmit(evt) {
+    evt.preventDefault();
+    onAddItem(values);
+  }
+
   return (
     <ModalWithForm
       title="New garment"
@@ -13,18 +26,24 @@ const AddItemModal = ({ isOpen, handleSubmit, onClose }) => {
         Name{" "}
         <input
           type="text"
+          name="name"
           className="modal__input"
           id="name"
           placeholder="Name"
+          value={values.name}
+          onChange={handleChange}
         />
       </label>
       <label htmlFor="imageUrl" className="modal__label">
         Image{" "}
         <input
           type="url"
+          name="link"
           className="modal__input"
           id="imageUrl"
           placeholder="Image URL"
+          value={values.link}
+          onChange={handleChange}
         />
       </label>
       <fieldset className="modal__radio-btns">
@@ -37,6 +56,8 @@ const AddItemModal = ({ isOpen, handleSubmit, onClose }) => {
             name="weather"
             value="hot"
             className="modal__radio-input"
+            value="hot"
+            onChange={handleChange}
           />{" "}
           Hot
         </label>
@@ -48,6 +69,8 @@ const AddItemModal = ({ isOpen, handleSubmit, onClose }) => {
             name="weather"
             value="warm"
             className="modal__radio-input"
+            value="warm"
+            onChange={handleChange}
           />{" "}
           Warm
         </label>
@@ -59,6 +82,8 @@ const AddItemModal = ({ isOpen, handleSubmit, onClose }) => {
             name="weather"
             value="cold"
             className="modal__radio-input"
+            value="cold"
+            onChange={handleChange}
           />{" "}
           Cold
         </label>
