@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import { coordinates, apiKey } from "../../utils/constants.js";
 import Header from "../Header/Header.jsx";
@@ -73,12 +73,20 @@ function App() {
       <div className="page">
         <div className="page__content">
           <Header handleAddClick={handleAddClick} weatherData={weatherData} />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Main
+                  weatherData={weatherData}
+                  handleCardClick={handleCardClick}
+                  clothingItems={clothingItems}
+                />
+              }
+            />
+            <Route path="/profile" element={<p>PROFILE</p>} />
+          </Routes>
 
-          <Main
-            weatherData={weatherData}
-            handleCardClick={handleCardClick}
-            clothingItems={clothingItems}
-          />
           <Footer />
         </div>
 
