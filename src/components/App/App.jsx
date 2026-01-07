@@ -6,6 +6,7 @@ import Header from "../Header/Header.jsx";
 import Main from "../Main/Main.jsx";
 import Footer from "../Footer/Footer.jsx";
 import ItemModal from "../ItemModal/ItemModal.jsx";
+import Profile from "../Profile/Profile.jsx";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi.js";
 import CurrentTemperatureUnitContex from "../../contexts/CurrentTemperatureUnitContext.js";
 import { defaultClothingItems } from "../../utils/constants.js";
@@ -84,7 +85,16 @@ function App() {
                 />
               }
             />
-            <Route path="/profile" element={<p>PROFILE</p>} />
+            <Route
+              path="/profile"
+              element={
+                <Profile
+                  handleCardClick={handleCardClick}
+                  clothingItems={clothingItems}
+                  handleAddClick={handleAddClick}
+                />
+              }
+            />
           </Routes>
 
           <Footer />
