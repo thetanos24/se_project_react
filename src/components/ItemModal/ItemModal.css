@@ -10,14 +10,21 @@
   padding: 0;
 }
 
-.modal__footer {
+.modal__description {
   display: flex;
   flex-direction: column;
+  width: 100%;
+}
+
+.modal__header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .modal__caption {
   margin: 0;
-  padding-bottom: 12px;
+  padding: 0;
   font-size: 20px;
   line-height: 24px;
   font-weight: 700;
@@ -25,7 +32,19 @@
 
 .modal__weather {
   margin: 0;
+  padding-top: 12px;
   font-size: 20px;
   line-height: 24px;
   font-weight: 700;
+}
+
+.modal__delete-btn {
+  background: transparent;
+  border: none;
+  color: #ff4d00;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 0;
+  margin: 0;
+  font-weight: bold;
 }

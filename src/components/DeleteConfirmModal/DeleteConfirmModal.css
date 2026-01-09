@@ -1,0 +1,32 @@
+.modal__confirm-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__confirm-text {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.modal__confirm-btn_type_delete {
+  color: red;
+  border-style: none;
+  background-color: transparent;
+  margin-top: 40px;
+  margin-bottom: 24px;
+  padding: 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.modal__confirm-btn_type_cancel {
+  color: black;
+  border-style: none;
+  background-color: transparent;
+  padding: 0;
+  font-size: 20px;
+  font-weight: bold;
+}

@@ -9,10 +9,18 @@ function ModalWithForm({
   isOpen,
   children,
   onSubmit,
+  disabled,
 }) {
+  const handleOverlayClick = (e) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
+
   return (
     <div
       className={`modal modal_type_${name} ${isOpen ? "modal__opened" : ""}`}
+      onClick={handleOverlayClick}
     >
       <div className="modal__content">
         <p className="modal__title">{title}</p>
@@ -25,7 +33,7 @@ function ModalWithForm({
         </button>
         <form onSubmit={onSubmit} className="modal__form" name={name}>
           {children}
-          <button type="submit" className="modal__submit">
+          <button type="submit" className="modal__submit" disabled={disabled}>
             {buttonText}
           </button>
         </form>
