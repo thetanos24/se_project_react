@@ -22,6 +22,12 @@
   font-weight: bold;
 }
 
+.modal__confirm-btn_type_delete:hover {
+  transform: scale(1.1);
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+}
+
 .modal__confirm-btn_type_cancel {
   color: black;
   border-style: none;
@@ -29,4 +35,10 @@
   padding: 0;
   font-size: 20px;
   font-weight: bold;
+}
+
+.modal__confirm-btn_type_cancel:hover {
+  transform: scale(1.1);
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
 }

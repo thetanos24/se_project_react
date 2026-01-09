@@ -48,3 +48,9 @@
   margin: 0;
   font-weight: bold;
 }
+
+.modal__delete-btn:hover {
+  transform: scale(1.1);
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+}
