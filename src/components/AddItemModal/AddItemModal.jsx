@@ -83,7 +83,7 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
             checked={values.weather === "hot"}
             required
           />
-          Hot
+          <span className="modal__radio-text">Hot</span>
         </label>
 
         <label htmlFor="warm" className="modal__label modal__label_type_radio">
@@ -96,7 +96,7 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
             onChange={handleChange}
             checked={values.weather === "warm"}
           />
-          Warm
+          <span className="modal__radio-text">Warm</span>
         </label>
 
         <label htmlFor="cold" className="modal__label modal__label_type_radio">
@@ -109,7 +109,7 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
             onChange={handleChange}
             checked={values.weather === "cold"}
           />
-          Cold
+          <span className="modal__radio-text">Cold</span>
         </label>
         <span className="modal__error">{errors.weather}</span>
       </fieldset>

@@ -21,6 +21,12 @@
   color: #00000099;
 }
 
+.clothes-section__add-btn:hover {
+  color: black;
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+}
+
 .clothes-section__items {
   display: grid;
   grid-template-columns: repeat(auto-fit, 323px);

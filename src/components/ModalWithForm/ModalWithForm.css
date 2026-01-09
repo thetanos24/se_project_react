@@ -64,11 +64,13 @@
   border-style: none;
   border-bottom: solid 1px #000000;
   margin-top: 3px;
+  cursor: pointer;
 }
 
 .modal__legend {
   padding-bottom: 12px;
   color: #000;
+  cursor: default;
 }
 
 .modal__radio-btns {
@@ -79,6 +81,16 @@
   padding: 0;
   margin: 0;
   color: #00000080;
+}
+
+.modal__radio-input {
+  cursor: pointer;
+}
+
+.modal__radio-input:checked + .modal__radio-text {
+  color: black;
+  font-weight: bold;
+  transition: 0.2s ease-in-out;
   cursor: pointer;
 }
 
@@ -91,16 +103,25 @@
   margin-top: 8px;
   width: 124px;
   height: 36px;
+}
+
+.modal__submit:not(:disabled) {
+  background-color: #000000;
   cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.modal__submit:not(:disabled):hover {
+  background-color: #00000099;
+  transition: 0.2s ease-in-out;
 }
 
 .modal__error {
   color: #ff4d4d;
-  font-size: 12px;
-  line-height: 15px;
-  margin-top: 5px;
-  min-height: 15px;
+  font-size: 16px;
   display: block;
+  padding-top: 8px;
+  font-weight: bold;
 }
 
 .modal__input_type_error {
