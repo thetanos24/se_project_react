@@ -46,6 +46,10 @@ function App() {
     setIsDeleteModalOpen(false);
   };
 
+  const handleCancelDelete = () => {
+    setIsDeleteModalOpen(false);
+  };
+
   const handleCardDelete = () => {
     setIsDeleteModalOpen(true);
   };
@@ -59,7 +63,7 @@ function App() {
 
     addItem(newCardData)
       .then((data) => {
-        setClothingItems([data, ...clothingItems]);
+        setClothingItems((prevItems) => [data, ...prevItems]);
         closeActiveModal();
       })
       .catch(console.error);
@@ -156,7 +160,7 @@ function App() {
 
         <DeleteConfirmModal
           isOpen={isDeleteModalOpen}
-          onClose={closeActiveModal}
+          onClose={handleCancelDelete}
           onConfirm={handleConfirmDelete}
         />
       </div>

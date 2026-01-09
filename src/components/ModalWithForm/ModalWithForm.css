@@ -76,7 +76,7 @@
 .modal__legend {
   padding-bottom: 12px;
   color: #000;
-  cursor: default;
+  cursor: pointer;
 }
 
 .modal__radio-btns {

@@ -89,3 +89,10 @@ export const coordinates = {
 };
 
 export const apiKey = "176789e498e8f87baeca708340107615";
+
+export const checkResponse = (res) => {
+  if (res.ok) {
+    return res.json();
+  }
+  return Promise.reject(`Error: ${res.status}`);
+};
