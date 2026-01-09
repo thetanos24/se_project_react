@@ -77,7 +77,7 @@ function App() {
   };
 
   useEffect(() => {
-    if (!activeModal && !isDeleteModalOpen) return; // Don't add listener if no modal is open
+    if (!activeModal && !isDeleteModalOpen) return;
 
     const handleEscClose = (e) => {
       if (e.key === "Escape") {
