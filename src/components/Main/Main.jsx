@@ -9,8 +9,6 @@ function Main({
   handleCardClick,
   clothingItems = [],
   onCardLike,
-  isLoggedIn,
-  currentUser,
 }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
 
@@ -23,24 +21,20 @@ function Main({
           {currentTemperatureUnit} / You may want to wear:
         </p>
         <ul className="cards__list">
-          {isLoggedIn &&
-            clothingItems
-              .filter((item) => {
-                const itemWeather = item.weather === weatherData.type;
-                const isOwner = item.owner === currentUser?._id;
-
-                return itemWeather && isOwner;
-              })
-              .map((item) => {
-                return (
-                  <ItemCard
-                    key={item._id}
-                    item={item}
-                    onCardClick={handleCardClick}
-                    onCardLike={onCardLike}
-                  />
-                );
-              })}
+          {clothingItems
+            .filter((item) => {
+              return item.weather === weatherData.type;
+            })
+            .map((item) => {
+              return (
+                <ItemCard
+                  key={item._id}
+                  item={item}
+                  onCardClick={handleCardClick}
+                  onCardLike={onCardLike}
+                />
+              );
+            })}
         </ul>
       </section>
     </main>
