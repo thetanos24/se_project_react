@@ -1,6 +1,11 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
 .sidebar__user-container {
   display: flex;
-  flex-direction: row;
   align-items: center;
   gap: 16px;
 }
@@ -13,7 +18,35 @@
 }
 
 .sidebar__username {
+  margin: 0;
   font-size: 20px;
   font-weight: bold;
   white-space: nowrap;
+}
+
+.sidebar__controls {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sidebar__edit-btn,
+.sidebar__logout-btn {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+  color: #000;
+  transition:
+    opacity 0.2s ease-in-out,
+    color 0.2s ease-in-out;
+}
+
+.sidebar__edit-btn:hover,
+.sidebar__logout-btn:hover {
+  opacity: 0.6;
 }

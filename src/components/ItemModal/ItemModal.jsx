@@ -1,7 +1,15 @@
 import "./ItemModal.css";
 import previewCloseButton from "../../images/modalimagepreviewclose.svg";
+import { useContext } from "react";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 
 function ItemModal({ isOpen, card, onClose, name, onDelete }) {
+  const currentUser = useContext(CurrentUserContext);
+  const isOwn = card.owner === currentUser?._id;
+  const itemDeleteButtonClassName = `modal__delete-btn ${
+    isOwn ? "modal__delete-btn_visible" : "modal__delete-btn_hidden"
+  }`;
+
   const handleOverlayClick = (e) => {
     if (e.target === e.currentTarget) {
       onClose();
@@ -29,7 +37,7 @@ function ItemModal({ isOpen, card, onClose, name, onDelete }) {
               <p className="modal__caption">{card.name}</p>
               <button
                 type="button"
-                className="modal__delete-btn"
+                className={itemDeleteButtonClassName}
                 onClick={() => onDelete(card)}
               >
                 Delete item

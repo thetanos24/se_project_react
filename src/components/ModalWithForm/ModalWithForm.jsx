@@ -10,6 +10,8 @@ function ModalWithForm({
   children,
   onSubmit,
   disabled,
+  redirectText,
+  onRedirectClick,
 }) {
   const handleOverlayClick = (e) => {
     if (e.target === e.currentTarget) {
@@ -33,9 +35,22 @@ function ModalWithForm({
         </button>
         <form onSubmit={onSubmit} className="modal__form" name={name}>
           {children}
-          <button type="submit" className="modal__submit" disabled={disabled}>
-            {buttonText}
-          </button>
+
+          <div className="modal__actions">
+            <button type="submit" className="modal__submit" disabled={disabled}>
+              {buttonText}
+            </button>
+
+            {redirectText && (
+              <button
+                type="button"
+                className="modal__redirect-btn"
+                onClick={onRedirectClick}
+              >
+                {redirectText}
+              </button>
+            )}
+          </div>
         </form>
       </div>
     </div>

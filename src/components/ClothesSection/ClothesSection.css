@@ -29,9 +29,10 @@
 
 .clothes-section__items {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 323px);
-  grid-template-rows: repeat(auto-fit, 323px);
-  padding: 0;
+  grid-template-columns: repeat(auto-fill, 328px);
+  grid-auto-rows: 325px;
   gap: 20px;
+  padding: 0;
   margin: 0;
+  list-style: none;
 }
