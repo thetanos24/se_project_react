@@ -2,24 +2,44 @@
 
 ## Project Overview
 
-WTWR is a responsive, single-page application built with React that provides personalized clothing suggestions based on real-time local weather data. This project demonstrates core Front-End development skills, focusing on state management, API interaction, and component-based architecture.
+Have you ever stared at your closet wondering if you need a light jacket or a heavy coat? **WTWR** is a full-stack "What to Wear" application that takes the guesswork out of getting dressed. By integrating real-time weather data with a custom digital wardrobe, the app suggests the perfect outfit for the current conditions in your specific location.
 
-## Key Features & Technical Skills
+This project represents my transition into **Full-Stack MERN development**, moving from a purely frontend React app to a secure, database-driven ecosystem.
 
-This project was developed to practice and showcase proficiency in the following essential software engineering areas:
+## The Tech Stack
 
-- Real-Time Weather Integration: Fetches and processes external data using the OpenWeatherMap API. Utilizes JavaScript's fetch API and Promises for asynchronous operations.
-- Dynamic UI Updates: Implements complex React State Management to update the UI based on temperature and time of day, ensuring the application re-renders efficiently.
-- Custom Filtering Logic: Implemented custom JavaScript utility functions to categorize raw API data into usable conditions.
+- **Frontend:** React, React Router, Context API (for User and Temperature states).
 
-Currently, two official plugins are available:
+- **Backend:** Node.js, Express.js.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Database:** MongoDB via Mongoose.
+
+- **Auth:** JWT (JSON Web Tokens) for secure sessions and persistent login.
+
+- **Design:** Built using a mobile-first approach following BEM methodology and Figma specifications.
+
+## Key Features
+
+- **Smart Weather Filtering:** The app automatically categorizes your clothes into "Hot," "Warm," or "Cold" and displays only what’s relevant to the current temperature.
+
+- **Personalized Wardrobe:** Users can upload their own clothes, delete items, and "like" their favorites.
+
+- **Secure Profiles:** A dedicated profile page where you can update your name or avatar and manage your specific items.
+
+- **Real-Time Data:** Fetches live weather updates via the OpenWeatherMap API to keep suggestions accurate.
+
+## How to Run Locally
+
+1. Clone the repository.
+
+2. Install dependencies using npm install.
+
+3. Start the development server with npm run dev.
+
+4. _Note: You'll also need to have the Backend Server running simultaneously for full functionality._
 
 ## Links
 
-- [Figma Design](https://www.figma.com/file/DTojSwldenF9UPKQZd6RRb/Sprint-10%3A-WTWR)
-<!-- - [GitHub](https://thetanos24.github.io/se_project_react/) -->
+- [Figma Design](https://www.figma.com/file/bfVOvqlLmoKZ5lpro8WWBe/Sprint-14_-WTWR?t=3hvVWRz9LUFsxyNn-6)
 
 - [GitHub Backend Repository](https://github.com/thetanos24/se_project_express)

@@ -15,7 +15,13 @@ import EditProfileModal from "../EditProfileModal/EditProfileModal.jsx";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi.js";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext.js";
 import AddItemModal from "../AddItemModal/AddItemModal.jsx";
-import { getItems, addItem, removeItem } from "../../utils/api.js";
+import {
+  getItems,
+  addItem,
+  removeItem,
+  addCardLike,
+  removeCardLike,
+} from "../../utils/api.js";
 import DeleteConfirmModal from "../DeleteConfirmModal/DeleteConfirmModal.jsx";
 import CurrentUserContext from "../../contexts/CurrentUserContext.js";
 
@@ -159,7 +165,7 @@ function App() {
     const token = localStorage.getItem("jwt");
     const isLiked = likes?.some((id) => id === currentUser?._id);
 
-    const apiMethod = !isLiked ? auth.addCardLike : auth.removeCardLike;
+    const apiMethod = !isLiked ? addCardLike : removeCardLike;
 
     apiMethod(_id, token)
       .then((updatedCard) => {
