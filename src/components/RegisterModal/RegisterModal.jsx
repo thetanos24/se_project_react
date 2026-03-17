@@ -37,7 +37,7 @@ const RegisterModal = ({ isOpen, onRegister, onClose, onLoginClick }) => {
       redirectText="or Log In"
       onRedirectClick={onLoginClick}
     >
-      <label htmlFor="name" className="modal__label">
+      <label className="modal__label">
         Email
         <input
           type="email"
