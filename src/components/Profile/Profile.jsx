@@ -12,7 +12,7 @@ export default function Profile({
   onEditProfile,
 }) {
   const userItems = clothingItems.filter((item) => {
-    return item.owner === currentUser?.id;
+    return item.owner === currentUser?._id;
   });
 
   return (
