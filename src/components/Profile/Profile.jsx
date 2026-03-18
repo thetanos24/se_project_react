@@ -11,6 +11,10 @@ export default function Profile({
   onCardLike,
   onEditProfile,
 }) {
+  const userItems = clothingItems.filter((item) => {
+    return item.owner === currentUser?.id;
+  });
+
   return (
     <section className="profile">
       <SideBar
@@ -20,7 +24,7 @@ export default function Profile({
       />
       <ClothesSection
         handleCardClick={handleCardClick}
-        clothingItems={clothingItems}
+        clothingItems={userItems}
         handleAddClick={handleAddClick}
         currentUser={currentUser}
         onCardLike={onCardLike}
