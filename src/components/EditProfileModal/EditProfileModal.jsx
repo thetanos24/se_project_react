@@ -1,23 +1,29 @@
 import "./EditProfileModal.css";
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
+import { useForm } from "../../hooks/useForm";
 
 const EditProfileModal = ({ isOpen, onUpdateUser, onClose }) => {
   const currentUser = useContext(CurrentUserContext);
-  const [name, setName] = useState("");
-  const [avatar, setAvatar] = useState("");
+
+  const { values, handleChange, setValues } = useForm({
+    name: "",
+    avatar: "",
+  });
 
   useEffect(() => {
-    if (isOpen) {
-      setName(currentUser?.name || "");
-      setAvatar(currentUser?.avatar || "");
+    if (isOpen && currentUser) {
+      setValues({
+        name: currentUser.name || "",
+        avatar: currentUser.avatar || "",
+      });
     }
-  }, [isOpen, currentUser]);
+  }, [isOpen, currentUser, setValues]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onUpdateUser({ name, avatar });
+    onUpdateUser(values);
   };
 
   return (
@@ -32,10 +38,11 @@ const EditProfileModal = ({ isOpen, onUpdateUser, onClose }) => {
       <label className="modal__label">
         Name
         <input
+          name="name"
           type="text"
           className="modal__input"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          value={values.name}
+          onChange={handleChange}
           placeholder="Name"
           required
           minLength="2"
@@ -45,10 +52,11 @@ const EditProfileModal = ({ isOpen, onUpdateUser, onClose }) => {
       <label className="modal__label">
         Avatar Image
         <input
+          name="avatar"
           type="url"
           className="modal__input"
-          value={avatar}
-          onChange={(e) => setAvatar(e.target.value)}
+          value={values.avatar}
+          onChange={handleChange}
           placeholder="Avatar URL"
           required
         />
