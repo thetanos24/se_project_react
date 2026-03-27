@@ -28,6 +28,12 @@ This project represents my transition into **Full-Stack MERN development**, movi
 
 - **Real-Time Data:** Fetches live weather updates via the OpenWeatherMap API to keep suggestions accurate.
 
+## Deployment
+
+This project is deployed on Google Cloud Platform VM instance.
+
+[weatherweartoday.jumpingcrab.com](https://weatherweartoday.jumpingcrab.com)
+
 ## How to Run Locally
 
 1. Clone the repository.
@@ -43,3 +49,5 @@ This project represents my transition into **Full-Stack MERN development**, movi
 - [Figma Design](https://www.figma.com/file/bfVOvqlLmoKZ5lpro8WWBe/Sprint-14_-WTWR?t=3hvVWRz9LUFsxyNn-6)
 
 - [GitHub Backend Repository](https://github.com/thetanos24/se_project_express)
+
+- [GitHub Frontend Repository](https://github.com/thetanos24/se_project_react)
