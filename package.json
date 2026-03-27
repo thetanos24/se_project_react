@@ -3,13 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://weatherweartoday.jumpingcrab.com",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "npm run build && scp -r ./dist/* thetanos24@weatherweartoday.jumpingcrab.com:/home/thetanos24/frontend"
   },
   "dependencies": {
     "react": "^18.3.1",

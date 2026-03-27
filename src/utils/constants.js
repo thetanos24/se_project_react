@@ -90,6 +90,11 @@ export const coordinates = {
 
 export const apiKey = "176789e498e8f87baeca708340107615";
 
+export const BASE_URL =
+  process.env.NODE_ENV === "production"
+    ? "https://api.weatherweartoday.jumpingcrab.com"
+    : "http://localhost:3001";
+
 export const checkResponse = (res) => {
   if (res.ok) {
     return res.json();

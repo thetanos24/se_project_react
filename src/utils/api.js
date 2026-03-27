@@ -1,17 +1,15 @@
-import { checkResponse } from "./constants.js";
-
-const baseUrl = "http://localhost:3001";
+import { checkResponse, BASE_URL } from "./constants.js";
 
 const headers = {
   "Content-Type": "application/json",
 };
 
 export const getItems = () => {
-  return fetch(`${baseUrl}/items`, { headers }).then(checkResponse);
+  return fetch(`${BASE_URL}/items`, { headers }).then(checkResponse);
 };
 
 export const addItem = ({ name, imageUrl, weather }, token) => {
-  return fetch(`${baseUrl}/items`, {
+  return fetch(`${BASE_URL}/items`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -26,7 +24,7 @@ export const addItem = ({ name, imageUrl, weather }, token) => {
 };
 
 export const removeItem = (itemID, token) => {
-  return fetch(`${baseUrl}/items/${itemID}`, {
+  return fetch(`${BASE_URL}/items/${itemID}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -36,7 +34,7 @@ export const removeItem = (itemID, token) => {
 };
 
 export const addCardLike = (id, token) => {
-  return fetch(`${baseUrl}/items/${id}/likes`, {
+  return fetch(`${BASE_URL}/items/${id}/likes`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -46,7 +44,7 @@ export const addCardLike = (id, token) => {
 };
 
 export const removeCardLike = (id, token) => {
-  return fetch(`${baseUrl}/items/${id}/likes`, {
+  return fetch(`${BASE_URL}/items/${id}/likes`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
